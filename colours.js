@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const colours = ['#489250', '#000000', '#2c4fa9', '#c83e28', '#ed6c3a', '#f5c644', '#eb4f74'];
+    const colours = ['#FFFFFF', '#489250', '#000000', '#2c4fa9', '#c83e28', '#ed6c3a', '#f5c644', '#eb4f74'];
     const animations = ['slideOutSlideInRight', 'slideOutSlideInLeft', 'upAndDown', 'downAndUp']; // Add more animations here if needed
 
     const container = document.getElementById('grid-container');
