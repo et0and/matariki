@@ -1,0 +1,47 @@
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 40px; /* Adjust padding as needed */
+    color: #111;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #fff;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.text-content {
+    max-width: 300px; /* Or any suitable width */
+}
+
+#grid-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 100%; /* Makes the height equal to the width, keeping the container square */
+    overflow: hidden;
+}
+
+.rectangle {
+    position: absolute;
+}
+
+@media (min-width: 768px) {
+    #grid-container {
+        width: 500px;
+        height: 500px;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-container {
+        flex-direction: column-reverse;
+        align-items: left;
+    }
+}
