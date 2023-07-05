@@ -27,10 +27,6 @@ body {
     overflow: hidden;
 }
 
-.rectangle {
-    position: absolute;
-}
-
 @media (min-width: 768px) {
     #grid-container {
         width: 500px;
@@ -44,4 +40,62 @@ body {
         flex-direction: column-reverse;
         align-items: left;
     }
+}
+
+/* Animation moving to the right and back */
+@keyframes slideOutSlideInRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Animation moving to the left and back */
+@keyframes slideOutSlideInLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes upAndDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes downAndUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Add as many different animations as you want... */
+
+
+.rectangle {
+    position: absolute;
+    animation: slideOutSlideIn 60s linear infinite; /* Adjust time as needed */
 }

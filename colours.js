@@ -1,38 +1,22 @@
-const colors = ["#FFFFFF", "#000000", "#2c4fa9", "#44914d", "#c83e28", "#ed6c3a", "#f5c644", "#eb4f74"];
-        const container = document.getElementById('grid-container');
+document.addEventListener('DOMContentLoaded', (event) => {
+    const colours = ['#489250', '#000000', '#2c4fa9', '#c83e28', '#ed6c3a', '#f5c644', '#eb4f74'];
+    const animations = ['slideOutSlideInRight', 'slideOutSlideInLeft', 'upAndDown', 'downAndUp']; // Add more animations here if needed
 
-        // Function to generate a random integer between min and max, inclusive
-        function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+    const container = document.getElementById('grid-container');
 
-        // On each page load
-        window.onload = function() {
-        // Generate 20 rectangles as an example
-        for(let i = 0; i < 20; i++) {
-            // Create a new rectangle
-            let rectangle = document.createElement('div');
-            rectangle.classList.add('rectangle');
+    for (let i = 0; i < 50; i++) {
+        const colourIndex = Math.floor(Math.random() * colours.length);
+        const animationIndex = Math.floor(Math.random() * animations.length);
         
-            // Randomly determine the size and position of the rectangle
-            let width = getRandomInt(10, 40);  // width between 10% and 40% of the container
-            let height = getRandomInt(10, 40);  // height between 10% and 40% of the container
-            let left = getRandomInt(0, 100 - width);  // left position within the container bounds
-            let top = getRandomInt(0, 100 - height);  // top position within the container bounds
+        const rect = document.createElement('div');
+        rect.className = 'rectangle';
+        rect.style.backgroundColor = colours[colourIndex];
+        rect.style.width = `${Math.random() * 100}%`;
+        rect.style.height = `${Math.random() * 100}%`;
+        rect.style.left = `${Math.random() * 100}%`;
+        rect.style.top = `${Math.random() * 100}%`;
+        rect.style.animation = `${animations[animationIndex]} ${Math.random() * 40 + 60}s linear infinite`; // The animation duration will also be random between 5 and 10 seconds
 
-            // Apply the size and position styles to the rectangle
-            rectangle.style.width = width + '%';
-            rectangle.style.height = height + '%';
-            rectangle.style.left = left + '%';
-            rectangle.style.top = top + '%';
-
-            // Randomly determine the color of the rectangle from your palette
-            let colorIndex = getRandomInt(0, colors.length - 1);  // index within the colors array
-            rectangle.style.backgroundColor = colors[colorIndex];
-
-            // Append the rectangle to the container
-            container.appendChild(rectangle);
-        }
-        }
+        container.appendChild(rect);
+    }
+});
